@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 22:14:48 by lvincent          #+#    #+#             */
-/*   Updated: 2022/10/16 14:30:39 by lvincent         ###   ########.fr       */
+/*   Updated: 2022/11/12 18:44:39 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ static int	ft_inset(char c, char *set)
 	return (0);
 }
 
-static unsigned int	ft_tr_st(char *str, char *set)
+static long long	ft_trim_st(char *str, char *set)
 {
-	unsigned int	rv;
-	unsigned int	i;
+	size_t	rv;
+	size_t	i;
 
 	i = 0;
 	rv = 0;
@@ -39,10 +39,10 @@ static unsigned int	ft_tr_st(char *str, char *set)
 	return (rv);
 }
 
-static unsigned int	ft_tr_nd(char *str, char *set)
+static long long	ft_trim_nd(char *str, char *set)
 {
-	unsigned int	rv;
-	int				i;
+	long long	rv;
+	long long	i;
 
 	i = ft_strlen((const char *)str) - 1;
 	rv = i;
@@ -58,17 +58,19 @@ static unsigned int	ft_tr_nd(char *str, char *set)
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int		start;
-	int		end;
-	char	*rv;
+	long long	start;
+	long long	end;
+	char		*rv;
 
-	start = ft_tr_st((char *)s1, (char *)set);
-	end = ft_tr_nd((char *)s1, (char *)set);
+	if (s1 == NULL || set == NULL)
+		return (NULL);
+	start = ft_trim_st((char *)s1, (char *)set);
+	end = ft_trim_nd((char *)s1, (char *)set);
 	if (start > end)
 		return (ft_strdup(""));
 	rv = ft_substr(s1, start, end - start + 1);
 	if (!rv)
-		return (T_NULL);
+		return (NULL);
 	else
 		return (rv);
 }

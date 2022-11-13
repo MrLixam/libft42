@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 18:43:58 by lvincent          #+#    #+#             */
-/*   Updated: 2022/10/16 14:33:17 by lvincent         ###   ########.fr       */
+/*   Updated: 2022/11/12 18:23:11 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,27 @@
 
 int	ft_atoi(const char *nptr)
 {
-	int	i;
-	int	res;
-	int	sign;
+	int				ints[2];
+	unsigned int	res;
 
-	i = 0;
+	ints[0] = 0;
 	res = 0;
-	sign = 1;
-	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == ' ')
-		i++;
-	if (nptr[i] == '-' || nptr[i] == '+')
+	ints[1] = 1;
+	if(nptr == NULL)
+		return (NULL);
+	while ((nptr[ints[0]] >= 9 && nptr[ints[0]] <= 13) || nptr[ints[0]] == ' ')
+		ints[0]++;
+	if (nptr[ints[0]] == '-' || nptr[ints[0]] == '+')
+		if (nptr[ints[0]++] == '-')
+			ints[1] = -1;
+	while (nptr[ints[0]] && ft_isdigit(nptr[ints[0]]))
 	{
-		if (nptr[i] == '-')
-			sign = -1;
-		i++;
+		if ((res * 10) + (nptr[ints[0]] - '0') < res && ints[1] == 1)
+			return (-1);
+		else if ((res * 10) + (nptr[ints[0]] - '0') < res && ints[1] == -1)
+			return (0);
+		res = (res * 10) + (nptr[ints[0]] - '0');
+		ints[0]++;
 	}
-	while (nptr[i] && ft_isdigit(nptr[i]))
-	{
-		res = (res * 10) + (nptr[i] - '0');
-		i++;
-	}
-	return (sign * res);
+	return (ints[1] * res);
 }

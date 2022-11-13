@@ -6,18 +6,18 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 23:36:15 by lvincent          #+#    #+#             */
-/*   Updated: 2022/10/12 22:52:27 by lvincent         ###   ########.fr       */
+/*   Updated: 2022/11/12 18:30:58 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, unsigned int n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
 	unsigned char	*tmps;
 
-	if (c > 255)
-		c -= 256;
+	if (s == NULL)
+		return (NULL);
 	tmps = (unsigned char *)s;
 	while (n--)
 	{
@@ -25,5 +25,5 @@ void	*ft_memchr(const void *s, int c, unsigned int n)
 			return ((void *)tmps);
 		tmps++;
 	}
-	return (T_NULL);
+	return (NULL);
 }

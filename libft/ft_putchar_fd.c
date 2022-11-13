@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 23:55:08 by lvincent          #+#    #+#             */
-/*   Updated: 2022/10/16 14:31:51 by lvincent         ###   ########.fr       */
+/*   Updated: 2022/11/12 18:35:24 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 
 void	ft_putchar_fd(char c, int fd)
 {
+	if (c == NULL)
+		return ;
 	write(fd, &c, 1);
 }

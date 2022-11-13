@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 22:01:10 by lvincent          #+#    #+#             */
-/*   Updated: 2022/10/16 14:31:16 by lvincent         ###   ########.fr       */
+/*   Updated: 2022/11/11 15:06:26 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,17 @@
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char			*rv;
-	unsigned int	i;
-	unsigned int	j;
+	size_t			size_s1;
+	size_t			size_s2;
 
-	rv = malloc(1 + ft_strlen((const char *)s1) + ft_strlen((const char *)s2));
+	if (!s1 || !s2)
+		return (NULL);
+	size_s1 = ft_strlen((const char *)s1);
+	size_s2 = ft_strlen((const char *)s2);
+	rv = (char *)malloc(1 + size_s1 + size_s2);
 	if (!rv)
-		return (T_NULL);
-	i = 0;
-	j = 0;
-	while (s1[i])
-	{
-		rv[j] = s1[i];
-		i++;
-		j++;
-	}
-	i = 0;
-	while (s2[i])
-	{
-		rv[j] = s2[i];
-		i++;
-		j++;
-	}
-	rv[j] = '\0';
+		return (NULL);
+	ft_memcpy(rv, (char *)s1, size_s1);
+	ft_memcpy(rv + size_s1, (char *)s2, size_s2 + 1);
 	return (rv);
 }

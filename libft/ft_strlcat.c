@@ -6,17 +6,19 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 20:53:52 by lvincent          #+#    #+#             */
-/*   Updated: 2022/10/16 14:37:54 by lvincent         ###   ########.fr       */
+/*   Updated: 2022/11/12 18:38:38 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dest, const char *src, unsigned int size)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
 	unsigned int	i;
 	unsigned int	dest_i;
 
+	if (dest == NULL || src == NULL)
+		return (NULL);
 	if (size == 0)
 		return (ft_strlen(src));
 	dest_i = 0;

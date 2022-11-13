@@ -6,15 +6,19 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 00:12:05 by lvincent          #+#    #+#             */
-/*   Updated: 2022/10/12 17:56:54 by lvincent         ###   ########.fr       */
+/*   Updated: 2022/11/12 18:31:30 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_memcmp(const void *s1, const void *s2, unsigned int n)
+#include "libft.h"
+
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	unsigned char	*tmps1;
 	unsigned char	*tmps2;
 
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
 	tmps1 = (unsigned char *)s1;
 	tmps2 = (unsigned char *)s2;
 	if (n == 0)

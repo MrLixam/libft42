@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 22:21:55 by lvincent          #+#    #+#             */
-/*   Updated: 2022/10/12 20:19:06 by lvincent         ###   ########.fr       */
+/*   Updated: 2022/11/12 18:44:08 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int	size;
+	size_t	size;
 
-	while (c > 255)
-		c -= 256;
+	if (s == NULL || c == NULL)
+		return (NULL);
 	size = ft_strlen(s);
 	if (c == '\0')
 		return ((char *)s + size);
@@ -32,5 +32,5 @@ char	*ft_strrchr(const char *s, int c)
 	}
 	if (s[0] == (unsigned char)c)
 		return ((char *)s);
-	return (T_NULL);
+	return (NULL);
 }

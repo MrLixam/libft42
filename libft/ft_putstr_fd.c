@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 00:01:55 by lvincent          #+#    #+#             */
-/*   Updated: 2022/10/13 00:33:12 by lvincent         ###   ########.fr       */
+/*   Updated: 2022/10/26 15:23:22 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	while (*s)
-		ft_putchar_fd(*s++, fd);
+	if (s)
+	{
+		while (*s)
+			ft_putchar_fd(*s++, fd);
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 00:15:28 by lvincent          #+#    #+#             */
-/*   Updated: 2022/10/13 02:53:21 by lvincent         ###   ########.fr       */
+/*   Updated: 2022/11/12 18:36:03 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_putnbr_fd(int n, int fd)
 {
 	long long	big;
 
+	if (n == NULL)
+		return ;
 	big = n;
 	if (big < 0)
 	{

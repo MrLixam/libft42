@@ -6,14 +6,18 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 20:27:44 by lvincent          #+#    #+#             */
-/*   Updated: 2022/10/12 20:00:15 by lvincent         ###   ########.fr       */
+/*   Updated: 2022/11/12 18:40:04 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(const char *str)
-{
-	int	i;
+#include "libft.h"
 
+size_t	ft_strlen(const char *str)
+{
+	size_t	i;
+
+	if (str == NULL)
+		return (NULL);
 	i = 0;
 	while (str[i] != '\0')
 		i++;

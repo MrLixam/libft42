@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 23:31:31 by lvincent          #+#    #+#             */
-/*   Updated: 2022/10/16 14:31:09 by lvincent         ###   ########.fr       */
+/*   Updated: 2022/11/11 15:06:41 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char			*rv;
 	unsigned int	i;
 
+	if (s == NULL)
+		return (NULL);
 	rv = malloc(ft_strlen((const char *)s) + 1);
 	if (!rv)
 		return (rv);

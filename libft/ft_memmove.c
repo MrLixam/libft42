@@ -6,14 +6,18 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 19:20:24 by lvincent          #+#    #+#             */
-/*   Updated: 2022/10/16 12:49:52 by lvincent         ###   ########.fr       */
+/*   Updated: 2022/11/12 18:32:51 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memmove(void *dest, const void *src, unsigned int n)
-{
-	unsigned int i;
+#include "libft.h"
 
+void	*ft_memmove(void *dest, const void *src, size_t n)
+{
+	unsigned int	i;
+
+	if (dest == NULL || src == NULL)
+		return (NULL);
 	if (src != dest)
 	{
 		if (src > dest)

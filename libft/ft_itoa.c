@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 21:45:48 by lvincent          #+#    #+#             */
-/*   Updated: 2022/10/16 14:32:57 by lvincent         ###   ########.fr       */
+/*   Updated: 2022/11/12 18:25:45 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ char	*ft_itoa(int n)
 	int			i;
 	char		*rv;
 
+	if (n = NULL)
+		return (NULL);
 	big = n;
 	big = (big * ((big > 0) - (big < 0)));
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 16:01:06 by lvincent          #+#    #+#             */
-/*   Updated: 2022/10/16 14:31:29 by lvincent         ###   ########.fr       */
+/*   Updated: 2022/11/12 18:36:33 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static void	ft_free_arr(char **arr)
 	unsigned int	i;
 
 	i = 0;
-	while (arr[i] != T_NULL)
+	while (arr[i] != NULL)
 	{
 		free(arr[i]);
 		i++;
@@ -63,54 +63,41 @@ static void	ft_free_arr(char **arr)
 	free (arr);
 }
 
-static int	ft_check_val(char *str, char **arr)
+static size_t	ft_check_val(char *str, char **arr)
 {
-	unsigned int	j;
+	size_t	j;
 
 	j = ft_strlen((const char *)str);
 	if (j == 0)
 		ft_free_arr(arr);
+	free(str);
 	return (j);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char			**strs;
-	char			*cpy;
 	unsigned int	u_ints[3];
 
+	if (s == NULL || c == NULL)
+		return (NULL);
 	u_ints[2] = ft_count_str(s, c);
-	strs = (char **)ft_calloc(u_ints[2] + 1, sizeof(char *));
+	strs = ft_calloc(u_ints[2] + 1, sizeof(char *));
 	if (!strs)
-		return (T_NULL);
-	strs[u_ints[2]] = T_NULL;
+		return (NULL);
+	strs[u_ints[2]] = NULL;
 	u_ints[0] = 0;
 	while (u_ints[2])
 	{
-		cpy = ft_get_str(s, c);
 		while (*s == c)
 			s++;
-		u_ints[1] = ft_check_val(cpy, strs);
+		u_ints[1] = ft_check_val(ft_get_str(s, c), strs);
 		if (!u_ints[1])
-			return (T_NULL);
-		strs[u_ints[0]++] = ft_strdup(cpy);
-		free(cpy);
+			return (NULL);
+		strs[u_ints[0]++] = ft_get_str(s, c);
 		while (u_ints[1]--)
 			s++;
 		u_ints[2]--;
 	}
 	return (strs);
-}
-
-#include <stdio.h>
-
-int main()
-{
-	char *s = "      split       this for   me  !       ";
-	char **arr = ft_split(s, ' ');
-
-	int i = 0;
-	while (arr[i] != NULL)
-		printf("%s\n", arr[i++]);
-	return (0);
 }
