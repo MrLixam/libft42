@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 16:01:06 by lvincent          #+#    #+#             */
-/*   Updated: 2022/11/12 18:36:33 by lvincent         ###   ########.fr       */
+/*   Updated: 2022/11/14 00:39:14 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ char	**ft_split(char const *s, char c)
 	char			**strs;
 	unsigned int	u_ints[3];
 
-	if (s == NULL || c == NULL)
+	if (s == NULL)
 		return (NULL);
 	u_ints[2] = ft_count_str(s, c);
 	strs = ft_calloc(u_ints[2] + 1, sizeof(char *));

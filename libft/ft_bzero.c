@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 20:38:02 by lvincent          #+#    #+#             */
-/*   Updated: 2022/11/12 18:23:24 by lvincent         ###   ########.fr       */
+/*   Updated: 2022/11/14 03:06:20 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,5 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	if (s)
-		ft_memset(s, '\0', n);
+	ft_memset(s, '\0', n);
 }

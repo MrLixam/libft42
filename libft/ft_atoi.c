@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 18:43:58 by lvincent          #+#    #+#             */
-/*   Updated: 2022/11/12 18:23:11 by lvincent         ###   ########.fr       */
+/*   Updated: 2022/11/14 00:37:10 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ int	ft_atoi(const char *nptr)
 	ints[0] = 0;
 	res = 0;
 	ints[1] = 1;
-	if(nptr == NULL)
-		return (NULL);
 	while ((nptr[ints[0]] >= 9 && nptr[ints[0]] <= 13) || nptr[ints[0]] == ' ')
 		ints[0]++;
 	if (nptr[ints[0]] == '-' || nptr[ints[0]] == '+')

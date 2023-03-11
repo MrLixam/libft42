@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 19:31:21 by lvincent          #+#    #+#             */
-/*   Updated: 2022/11/12 18:47:23 by lvincent         ###   ########.fr       */
+/*   Updated: 2022/11/14 02:52:34 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
 	size_t	i;
 
-	if (dest = NULL  || src == NULL)
-		return (NULL);
 	i = 0;
 	if (size == 0)
 		return (ft_strlen(src));

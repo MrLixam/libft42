@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 21:29:13 by lvincent          #+#    #+#             */
-/*   Updated: 2022/11/12 18:36:57 by lvincent         ###   ########.fr       */
+/*   Updated: 2022/11/14 01:38:53 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	if (s == NULL || c == NULL)
-		return (NULL);
 	while (*s != '\0')
 	{
 		if (*s == (unsigned char)c)
