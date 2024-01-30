@@ -6,13 +6,13 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 20:12:17 by lvincent          #+#    #+#             */
-/*   Updated: 2024/01/30 07:50:59 by lvincent         ###   ########.fr       */
+/*   Updated: 2024/01/30 20:02:42 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-static char	*ft_strjoin_gnl(char *s1, char *s2)
+char	*ft_strjoin_gnl(char *s1, char *s2)
 {
 	char	*rv;
 
@@ -51,7 +51,8 @@ static char	*read_mini_line(char *save, int fd)
 		if (b_read == -1 || (b_read == 0 && ft_strlen(save) == 0))
 		{
 			free(tmp);
-			free(save);
+			if (save)
+				free(save);
 			return (NULL);
 		}
 		tmp[b_read] = '\0';

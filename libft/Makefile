@@ -6,7 +6,7 @@
 #    By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/11 15:46:24 by lvincent          #+#    #+#              #
-#    Updated: 2024/01/30 08:20:14 by lvincent         ###   ########.fr        #
+#    Updated: 2024/01/30 20:04:15 by lvincent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,31 +25,33 @@ BLUE = \033[0;34m
 RESET = \033[0m
 
 #Sources relative to get_next_line
-SRC =	get_next_line/get_next_line.c get_next_line/get_next_line_utils.c
+SRC +=	get_next_line/get_next_line.c get_next_line/get_next_line_init.c \
+		get_next_line/get_next_line_mem.c get_next_line/get_next_line_misc.c
 
 #Sources relative to ft_printf
-SRC	=	ft_printf/ft_printf.c ft_printf/ft_printf_utils1.c
+SRC	+=	ft_printf/ft_printf.c ft_printf/ft_printf_utils1.c
 
 #Sources relative file descriptor writing
-SRC =	libft/ft_putendl_fd.c libft/ft_putnbr_fd.c libft/ft_putstr_fd.c libft/ft_putchar_fd.c
+SRC +=	libft/ft_putendl_fd.c libft/ft_putnbr_fd.c libft/ft_putstr_fd.c libft/ft_putchar_fd.c
 
 #Miscellaneous utilities
-SRC =	libft/ft_itoa.c libft/ft_atoi.c libft/ft_split.c libft/ft_calloc.c libft/ft_memcmp.c
+SRC +=	libft/ft_itoa.c libft/ft_atoi.c libft/ft_split.c libft/ft_calloc.c libft/ft_memcmp.c libft/ft_free.c libft/ft_len_arr.c\
 		
 #Sources relative to single char operations
-SRC =	libft/ft_isalnum.c libft/ft_isalpha.c libft/ft_isascii.c \
-		libft/ft_isdigit.c libft/ft_isprint.c libft/ft_tolower.c libft/ft_toupper.c
+SRC +=	libft/ft_isalnum.c libft/ft_isalpha.c libft/ft_isascii.c \
+		libft/ft_isdigit.c libft/ft_isprint.c libft/ft_isspace.c \
+		libft/ft_tolower.c libft/ft_toupper.c
 
 #Sources relative to memory manipulation	
-SRC	=	libft/ft_bzero.c libft/ft_memcpy.c libft/ft_memmove.c libft/ft_memset.c libft/ft_memchr.c
+SRC	+=	libft/ft_bzero.c libft/ft_memcpy.c libft/ft_memmove.c libft/ft_memset.c libft/ft_memchr.c
 
 #Sources relative to string manipulation
-SRC =	libft/ft_strchr.c libft/ft_strlcat.c libft/ft_strlcpy.c libft/ft_strdup.c libft/ft_strnstr.c \
+SRC +=	libft/ft_strchr.c libft/ft_strlcat.c libft/ft_strlcpy.c libft/ft_strdup.c libft/ft_strnstr.c \
 		libft/ft_strlen.c libft/ft_strncmp.c libft/ft_strrchr.c libft/ft_substr.c libft/ft_strtrim.c \
 		libft/ft_strjoin.c libft/ft_strmapi.c libft/ft_striteri.c
 
 #Sources relative to chained lists
-SRC =	libft/ft_lstadd_front.c libft/ft_lstnew.c libft/ft_lstsize.c libft/ft_lstlast.c \
+SRC +=	libft/ft_lstadd_front.c libft/ft_lstnew.c libft/ft_lstsize.c libft/ft_lstlast.c \
 		libft/ft_lstadd_back.c libft/ft_lstclear.c libft/ft_lstdelone.c libft/ft_lstiter.c libft/ft_lstmap.c
 
 OBJ = ${SRC:.c=.o}
@@ -91,4 +93,4 @@ re: clean all
 debug: CFLAGS += -g
 debug: $(NAME)
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re debug

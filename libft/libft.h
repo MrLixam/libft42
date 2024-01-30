@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 22:09:29 by lvincent          #+#    #+#             */
-/*   Updated: 2024/01/30 08:33:12 by lvincent         ###   ########.fr       */
+/*   Updated: 2024/01/30 20:04:52 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
+# include <fcntl.h>
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 8
 # endif
@@ -37,8 +38,10 @@ size_t	ft_putunbr_fd(unsigned int n, int fd);
 /*	miscellaneous utils functions	*/
 int		ft_atoi(const char *nptr);
 void	*ft_calloc(size_t nmemb, size_t size);
+void	ft_free(void *mem);
 char	*ft_itoa(int n);
 char	**ft_split(char const *s, char c);
+size_t	ft_len_arr(char **foo);
 
 /*	memory manipulation	*/
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
@@ -54,6 +57,7 @@ int		ft_isalpha(int c);
 int		ft_isascii(int c);
 int		ft_isdigit(int c);
 int		ft_isprint(int c);
+int		ft_isspace(int c);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 
@@ -109,5 +113,7 @@ char	**gnl_storage(void);
 void	gnl_release(void);
 void	gnl_release_fd(int fd);
 size_t	gnl_count_lines(int fd);
+char	*ft_strjoin_gnl(char *s1, char *s2);
+int		gnl_fd_max(void);
 
 #endif

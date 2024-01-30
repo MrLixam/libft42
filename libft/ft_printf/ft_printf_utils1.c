@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 22:14:20 by lvincent          #+#    #+#             */
-/*   Updated: 2024/01/30 07:53:09 by lvincent         ###   ########.fr       */
+/*   Updated: 2024/01/30 19:36:56 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ size_t	ft_puthex(unsigned int nbr, char mode)
 		return (i);
 	}
 	else
-	{	
+	{
 		i += ft_puthex(lnbr / 16, mode);
 		i += ft_puthex(lnbr % 16, mode);
 	}
@@ -70,7 +70,7 @@ size_t	ft_putptr(unsigned long long nbr)
 		return (i);
 	}
 	else
-	{	
+	{
 		i += ft_putptr(nbr / 16);
 		i += ft_putptr(nbr % 16);
 	}
