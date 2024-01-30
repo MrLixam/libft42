@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 19:27:07 by lvincent          #+#    #+#             */
-/*   Updated: 2024/01/30 20:02:39 by lvincent         ###   ########.fr       */
+/*   Updated: 2024/01/30 21:26:49 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,15 @@
 
 	in: void
 
-	out: char**, an array of 1024 strings, one for each valid fd
+	out: char**, an array of gnl_fd_max strings, one for each valid fd
 */
 
 char	**gnl_storage(void)
 {
-	static char	*file[1024] = {NULL};
+	static char	**file = NULL;
 
+	if (file == NULL)
+		file = ft_calloc(gnl_fd_max(), sizeof(char *));
 	return (file);
 }
 
@@ -35,7 +37,8 @@ char	**gnl_storage(void)
 	get_next_line() calls, you will probably need to close current open file
 	descriptors, or at least duplicate them as read calls will continue from
 	where they left off before freeing up memory
-	this function is intended for memory cleanup after full execution.
+	this function is intended for memory cleanup after full execution as it is
+	quite slow compared to using gnl_release_fd()
 	
 	input: (void)
 	
@@ -49,15 +52,13 @@ void	gnl_release(void)
 
 	i = 0;
 	storage = gnl_storage();
-	while (i < 1024)
+	while (i < gnl_fd_max())
 	{
 		if (storage[i])
-		{
-			free(storage[i]);
-			storage[i] = NULL;
-		}
+			ft_free(storage[i]);
 		i++;
 	}
+	ft_free(storage);
 }
 
 /*
@@ -76,12 +77,9 @@ void	gnl_release_fd(int fd)
 {
 	char	**storage;
 
-	if (fd < 0 || fd > 1023)
+	if (fd < 0 || fd > (gnl_fd_max() - 1))
 		return ;
 	storage = gnl_storage();
 	if (storage[fd])
-	{
-		free(storage[fd]);
-		storage[fd] = NULL;
-	}
+		ft_free(storage[fd]);
 }

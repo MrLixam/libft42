@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 02:34:31 by lvincent          #+#    #+#             */
-/*   Updated: 2024/01/30 20:40:07 by lvincent         ###   ########.fr       */
+/*   Updated: 2024/01/30 20:54:11 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ static int	init_max_fd(void)
 {
 	char	*file;
 	char	*line;
+	int		retval;
 
 	file = config_file();
 	if (file == NULL)
@@ -49,7 +50,9 @@ static int	init_max_fd(void)
 	if (!line)
 		return (1024);
 	line += 15;
-	return (ft_atoi(line));
+	retval = ft_atoi(line);
+	ft_free(file);
+	return (retval);
 }
 
 int	gnl_fd_max(void)
