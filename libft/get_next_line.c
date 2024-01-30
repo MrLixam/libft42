@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 20:12:17 by lvincent          #+#    #+#             */
-/*   Updated: 2022/12/29 17:31:39 by lvincent         ###   ########.fr       */
+/*   Updated: 2024/01/30 03:28:34 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../get_next_line.h"
 
 static char	*ft_strjoin_gnl(char *s1, char *s2)
 {
@@ -115,9 +115,10 @@ static char	*new_save(char *save)
 
 char	*get_next_line(int fd)
 {
-	static char	*save[1024] = {NULL};
-	char		*buffer;
+	char	**save;
+	char	*buffer;
 
+	save = gnl_storage();
 	if (fd < 0 || fd > 1023 || BUFFER_SIZE < 1)
 		return (NULL);
 	save[fd] = read_mini_line(save[fd], fd);
