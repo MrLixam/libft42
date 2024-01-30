@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 02:34:31 by lvincent          #+#    #+#             */
-/*   Updated: 2024/01/30 20:05:15 by lvincent         ###   ########.fr       */
+/*   Updated: 2024/01/30 20:40:07 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,14 @@ static char	*config_file(void)
 	file = NULL;
 	buffer[10] = '\0';
 	fd = open("/proc/self/limits", O_RDONLY);
+	if (fd == -1)
+		return (NULL);
 	while (1)
 	{
 		readb = read(fd, buffer, 10);
 		if (readb == -1 || readb == 0)
 			break ;
-		ft_strjoin_gnl(file, buffer);
+		file = ft_strjoin_gnl(file, buffer);
 	}
 	if (readb == -1)
 		if (file)
